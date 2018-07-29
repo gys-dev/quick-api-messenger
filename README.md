@@ -29,7 +29,7 @@ url: http://www.domain.com:8080/messenger?id=<your target id>&message=<your Mess
 ```
 + Với method post
 ```
-url: http://www.domain.com/mesenger
+url: http://www.domain.com/mesenger:8080
 post data:
 id=<Target Id>
 message=<Your message>
