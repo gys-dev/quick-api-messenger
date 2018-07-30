@@ -27,15 +27,14 @@
             };
              api.sendMessage(mess, id) 
       
-              response.write("{\"status\":\"success\"}");
+              response.json({"status":"success"});
         
-             
-            
+    
          }else{
-           response.write("{\"status\":\"error\",\"type\":\"id or content not null\"}")
+           response.json({status:"error",type:"no content or id"})
          };
-        response.end();
+        
      });
-     app.listen(8080);
+     app.listen(PROCESS.ENV.PORT||80);
  });
  
