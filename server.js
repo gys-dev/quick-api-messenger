@@ -30,13 +30,15 @@
 
      app.get("/messenger", function(request, response) {
 
-        
+
 
          // Write Something New :(
 
-         response.writeHead(200, {"Content-Type": "application/json"});
+         response.writeHead(200, {
+             "Content-Type": "application/json"
+         });
 
-         
+
 
          if (request.body.id != "undefined" && request.body.message != "undefined") {
 
@@ -44,37 +46,41 @@
 
                  mess = request.query['message'];
 
-            var msg = {
+             var msg = {
 
-             body: `${mess}`
+                 body: `${mess}`
 
-             
 
-            };
 
-             api.sendMessage(mess, id) 
+             };
 
-      
+             api.sendMessage(mess, id)
 
-              response.json({"status":"success"});
 
-        
 
-    
+             response.json({
+                 "status": "success"
+             });
 
-         }else{
 
-           response.json({status:"error",type:"no content or id"})
+
+
+         } else {
+
+             response.json({
+                 status: "error",
+                 type: "no content or id"
+             })
 
          };
 
-        
 
-     });  
 
-app.post("/messenger", function(request, response) {
+     });
 
-        
+     app.post("/messenger", function(request, response) {
+
+
 
          // Write Something New :(
 
@@ -84,7 +90,7 @@ app.post("/messenger", function(request, response) {
 
          });
 
-         
+
 
          if (request.body.id != "undefined" && request.body.message != "undefined") {
 
@@ -92,40 +98,40 @@ app.post("/messenger", function(request, response) {
 
                  mess = request.body.message;
 
-            var msg = {
+             var msg = {
 
-             body: `${mess}`
+                 body: `${mess}`
 
-             
 
-            };
 
-             api.sendMessage(mess, id) 
+             };
 
-      
+             api.sendMessage(mess, id)
 
-             response.json({status:"success"});
 
-        
 
-            
+             response.json({
+                 status: "success"
+             });
 
-            
 
-         }else{
 
-           response.json({status:"error"
 
-,type:"id or content null"})
+         } else {
+
+             response.json({
+                 status: "error"
+
+                     ,
+                 type: "id or content null"
+             })
 
          };
 
-         
+
 
      });
 
      app.listen(process.env.PORT || 80);
 
  });
-
- 
