@@ -124,7 +124,7 @@ app.post("/messenger", function(request, response) {
 
      });
 
-     app.listen(PROCESS.ENV.PORT||80);
+     app.listen(process.env.PORT || 80);
 
  });
 
